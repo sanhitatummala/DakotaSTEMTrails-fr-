@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Dakota STEM Trails</title>
+  <meta name="description" content="Get in touch with Dakota STEM Trails in Brookings, South Dakota. Email dakotastemtrails@gmail.com or send us a message.">
+  <meta name="theme-color" content="#fcfaf5">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dakota STEM Trails">
+  <meta property="og:title" content="Contact | Dakota STEM Trails">
+  <meta property="og:description" content="Get in touch with Dakota STEM Trails in Brookings, South Dakota. Email dakotastemtrails@gmail.com or send us a message.">
+  <meta property="og:image" content="hero-explorer.jpg">
+
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap">
+  <link rel="stylesheet" href="styles.css">
+
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="logo.svg" alt="" width="40" height="40">
+        <span>Dakota STEM Trails</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-menu" id="nav-menu" aria-label="Main">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+        <a class="btn btn--primary btn--sm" href="contact.html#message">Get involved</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===== Page header ===== -->
+    <section class="page-header">
+      <div class="container">
+        <p class="eyebrow" data-reveal>Contact</p>
+        <h1 data-reveal style="--delay:.08s">Get in touch</h1>
+        <p class="lead" data-reveal style="--delay:.16s">Questions, partnership ideas, or want to bring a program to your community? We&rsquo;d love to hear from you.</p>
+      </div>
+      <svg class="trail" viewBox="0 0 800 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><path d="M10 70C120 20 200 90 320 52S520 8 620 48 730 80 780 34"/><circle cx="780" cy="34" r="6"/></svg>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section class="section">
+      <div class="container contact-layout">
+        <aside class="contact-aside" data-reveal>
+          <h2>Our contact information</h2>
+          <p>Send us an email, message us on Instagram, or use the form.</p>
+          <ul class="contact-list">
+            <li>
+              <div class="contact-item">
+                <span class="icon-tile tint-sky"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                <div><small>Our homebase</small><strong>Brookings, South Dakota</strong></div>
+              </div>
+            </li>
+            <li>
+              <a class="contact-item" href="mailto:dakotastemtrails@gmail.com">
+                <span class="icon-tile tint-clay"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+                <div><small>Email us</small><strong>dakotastemtrails@gmail.com</strong></div>
+                <svg class="icon icon--go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="contact-item" href="https://www.instagram.com/dakotastemtrails/" target="_blank" rel="noopener">
+                <span class="icon-tile tint-mustard"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z"/><path d="M17.5 6.5h.01"/></svg></span>
+                <div><small>Our Instagram</small><strong>@dakotastemtrails</strong></div>
+                <svg class="icon icon--go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+            </li>
+          </ul>
+          <figure class="photo">
+            <img src="school-hallway.jpg" alt="A sunlit school hallway lined with children's artwork" width="1313" height="1326" loading="lazy">
+          </figure>
+        </aside>
+
+        <div class="card form-card" id="message" data-reveal style="--delay:.1s">
+          <h2>Would you like to reach out to us?</h2>
+          <p>Fill out the form if you would like to reach out to us!</p>
+
+          <form class="form" data-contact-form
+                data-endpoint="https://formsubmit.co/ajax/dakotastemtrails@gmail.com"
+                data-email="dakotastemtrails@gmail.com"
+                action="https://formsubmit.co/dakotastemtrails@gmail.com" method="POST">
+            <!-- FormSubmit settings -->
+            <input type="hidden" name="_subject" value="New message from the Dakota STEM Trails website">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <div class="form-row">
+              <div class="field">
+                <label for="first">First name <span class="req">*</span></label>
+                <input class="input" id="first" name="First name" type="text" autocomplete="given-name" required>
+              </div>
+              <div class="field">
+                <label for="last">Last name <span class="req">*</span></label>
+                <input class="input" id="last" name="Last name" type="text" autocomplete="family-name" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input class="input" id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+
+            <div class="field">
+              <label for="org">Company, school, or organization <span class="hint">(if applicable)</span></label>
+              <input class="input" id="org" name="Organization" type="text" autocomplete="organization">
+            </div>
+
+            <div class="field">
+              <label for="reason">What is the specific partnership or reason for contact?</label>
+              <textarea class="input" id="reason" name="Reason for contact" rows="5"></textarea>
+            </div>
+
+            <fieldset class="field">
+              <legend>Is it ok if we email you in regards to the partnership or reason for contact?</legend>
+              <div class="radio-group">
+                <label class="radio"><input type="radio" name="OK to email back" value="Yes"> Yes!</label>
+                <label class="radio"><input type="radio" name="OK to email back" value="No"> No</label>
+              </div>
+            </fieldset>
+
+            <div class="form-status" role="status" aria-live="polite"></div>
+
+            <button class="btn btn--primary btn--block" type="submit">
+              Send message <svg class="icon icon--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><span class="spinner" aria-hidden="true"></span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <img src="logo.svg" alt="" width="40" height="40">
+            <span>Dakota STEM Trails</span>
+          </a>
+          <p>Inspiring children in rural South Dakota to explore STEM through accessible, creative, hands-on learning and meaningful community partnerships.</p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="team.html">Our Team</a></li>
+            <li><a href="contact.html" aria-current="page">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Connect</h3>
+          <ul>
+            <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><a href="mailto:dakotastemtrails@gmail.com">dakotastemtrails@gmail.com</a></li>
+            <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z"/><path d="M17.5 6.5h.01"/></svg><a href="https://www.instagram.com/dakotastemtrails/" target="_blank" rel="noopener">@dakotastemtrails</a></li>
+            <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Brookings, South Dakota</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span data-year>2026</span> Dakota STEM Trails</p>
+        <button class="to-top" type="button" data-to-top>Back to top <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg></button>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
