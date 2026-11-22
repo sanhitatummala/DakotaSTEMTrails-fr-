@@ -84,18 +84,36 @@
 
   /* 5. Contact form
      Sends the form in the background so visitors stay on the page.
-     If JavaScript is off, the form still posts normally to FormSubmit.
+     - Opened as a local file (file://)? FormSubmit refuses those, so we
+       explain that the form only works once the site is online.
+     - FormSubmit replies with a problem (e.g. the inbox hasn't clicked the
+       one-time activation link yet)? We show FormSubmit's own message.
+     - The background request can't connect at all? We fall back to a normal
+       form submit, which sends the message through FormSubmit's own page.
+     If JavaScript is off, the form posts normally to FormSubmit.
      ------------------------------------------------------------------------ */
   var form = document.querySelector("[data-contact-form]");
   if (!form) return;
 
   var status = form.querySelector(".form-status");
   var submit = form.querySelector('[type="submit"]');
-  var fallbackEmail = form.getAttribute("data-email");
+  var email = form.getAttribute("data-email");
+  var emailLink = '<a href="mailto:' + email + '">' + email + "</a>";
 
   function showStatus(type, html) {
     status.className = "form-status is-" + type;
     status.innerHTML = html;
+  }
+
+  function escapeHtml(text) {
+    var div = document.createElement("div");
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  function setLoading(on) {
+    submit.disabled = on;
+    submit.classList.toggle("is-loading", on);
   }
 
   form.addEventListener("submit", function (e) {
@@ -103,8 +121,14 @@
     if (!form.checkValidity()) { form.reportValidity(); return; }
     if (form.querySelector('[name="_honey"]').value) return; // spam bot
 
-    submit.disabled = true;
-    submit.classList.add("is-loading");
+    if (location.protocol === "file:") {
+      showStatus("error", "The contact form only works once the website is online " +
+        "(for example on GitHub Pages). It can't send from a file opened on your computer. " +
+        "In the meantime, email us at " + emailLink + ".");
+      return;
+    }
+
+    setLoading(true);
     status.className = "form-status";
 
     var data = {};
@@ -115,19 +139,23 @@
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify(data)
     })
-      .then(function (res) { return res.json(); })
       .then(function (res) {
-        if (!res || String(res.success) !== "true") throw new Error("Send failed");
-        showStatus("success", "Thank you for reaching out! We’ll get back to you soon.");
-        form.reset();
+        return res.json().catch(function () { return {}; });
+      })
+      .then(function (res) {
+        if (String(res.success) === "true") {
+          showStatus("success", "Thank you for reaching out! We\u2019ll get back to you soon.");
+          form.reset();
+        } else {
+          // FormSubmit answered but didn't send (e.g. activation still needed)
+          showStatus("error", (res.message ? escapeHtml(res.message) + " " : "Sorry, your message couldn\u2019t be sent. ") +
+            "You can also email us directly at " + emailLink + ".");
+        }
+        setLoading(false);
       })
       .catch(function () {
-        showStatus("error", "Sorry, something went wrong. Please email us directly at " +
-          '<a href="mailto:' + fallbackEmail + '">' + fallbackEmail + "</a>.");
-      })
-      .finally(function () {
-        submit.disabled = false;
-        submit.classList.remove("is-loading");
+        // Couldn't reach FormSubmit in the background: submit the normal way
+        form.submit();
       });
   });
 })();
